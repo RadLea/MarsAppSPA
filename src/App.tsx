@@ -4,6 +4,7 @@ import {Nasa} from "./info";
 import Earth from "./media/earth.png"
 import {threeTagProp} from "./componentProp";
 import NasaPic from "./media/nasa.jpeg";
+import {ClickCounter} from "./clickCounter";
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
             <header className="App-header">
                 <img src={Earth} className="App-logo" alt="logo"/>
                 <Nasa {...prop}/>
+                <ClickCounter />
                 <a
                     className="App-link"
                     href="https://www.nasa.gov/"
@@ -36,6 +38,7 @@ function App() {
                 >
                     Visit Nasa for more
                 </a>
+
             </header>
         </div>
     );
