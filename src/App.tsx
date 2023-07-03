@@ -5,6 +5,7 @@ import Earth from "./media/earth.png"
 import {threeTagProp} from "./componentProp";
 import NasaPic from "./media/nasa.jpeg";
 import {ClickCounter} from "./clickCounter";
+import {ComplexComponent} from "./complexComponent";
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <img src={Earth} className="App-logo" alt="logo"/>
+                <ComplexComponent />
                 <Nasa {...prop}/>
                 <ClickCounter />
                 <a
