@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
 import {Nasa} from "./info";
-import Earth from "./media/earth.png"
 import {threeTagProp} from "./componentProp";
-import NasaPic from "./media/nasa.jpeg";
+import NasaPic from "./pics/nasa.jpeg";
 import {ClickCounter} from "./clickCounter";
 import {ComplexComponent} from "./complexComponent";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+
 
 function App() {
 
@@ -26,23 +27,13 @@ function App() {
     }
 
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={Earth} className="App-logo" alt="logo"/>
-                <ComplexComponent />
-                <Nasa {...prop}/>
-                <ClickCounter />
-                <a
-                    className="App-link"
-                    href="https://www.nasa.gov/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Visit Nasa for more
-                </a>
-
-            </header>
-        </div>
+        <Router>
+            <Routes>
+                <Route path="/" element={<Nasa {...prop}/>}/>
+                <Route path="/complex" element={<ComplexComponent />}/>
+                <Route path="/simple" element={<ClickCounter />}/>
+            </Routes>
+        </Router>
     );
 }
 

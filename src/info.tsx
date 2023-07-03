@@ -1,15 +1,26 @@
 import React from 'react';
-import MyPic from "./media/nasa.jpeg";
-import { threeTagProp } from "./componentProp";
+import {threeTagProp} from "./componentProp";
+import Earth from "./pics/earth.png";
 
-export function Nasa( props: threeTagProp ) {
+export function Nasa(props: threeTagProp) {
     document.title = props.title;
     return (
-        <>
+        <div className="App">
+            <header className="App-header">
+                <img src={Earth} className="App-logo" alt="logo"/>
+                <p style={{fontSize: 20, color: "#ff5a00", padding: 20}}>{props.para1}</p>
+                <img src={props.image} alt={props.imageAlt}/>
+                <p style={{fontSize: 20, color: "#ff5a00", padding: 20}}>{props.para2}</p>
+                <a
+                    className="App-link"
+                    href="https://www.nasa.gov/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Visit Nasa for more
+                </a>
 
-            <p style={{fontSize:20, color:"#ff5a00", padding:20}}>{props.para1}</p>
-            <img src={props.image} alt={props.imageAlt}/>
-            <p style={{fontSize:20, color:"#ff5a00", padding:20}}>{props.para2}</p>
-        </>
+            </header>
+        </div>
     );
 }
