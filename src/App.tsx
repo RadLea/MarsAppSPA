@@ -6,6 +6,7 @@ import NasaPic from "./pics/nasa.jpeg";
 import {ClickCounter} from "./clickCounter";
 import {ComplexComponent} from "./complexComponent";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {Sidebar} from "./Sidebar";
 
 
 function App() {
@@ -27,13 +28,13 @@ function App() {
     }
 
     return (
-        <Router>
+        <><Sidebar /><Router>
             <Routes>
-                <Route path="/" element={<Nasa {...prop}/>}/>
-                <Route path="/complex" element={<ComplexComponent />}/>
-                <Route path="/simple" element={<ClickCounter />}/>
+                <Route path="/" element={<Nasa {...prop} />}/>
+                <Route path="/complex" element={<ComplexComponent/>}/>
+                <Route path="/simple" element={<ClickCounter/>}/>
             </Routes>
-        </Router>
+        </Router></>
     );
 }
 

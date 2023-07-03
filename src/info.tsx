@@ -8,9 +8,9 @@ export function Nasa(props: threeTagProp) {
         <div className="App">
             <header className="App-header">
                 <img src={Earth} className="App-logo" alt="logo"/>
-                <p style={{fontSize: 20, color: "#ff5a00", padding: 20}}>{props.para1}</p>
+                <p style={{fontSize: 20, textAlign: "center", color: "#ff5a00", padding: 20}}>{props.para1}</p>
                 <img src={props.image} alt={props.imageAlt}/>
-                <p style={{fontSize: 20, color: "#ff5a00", padding: 20}}>{props.para2}</p>
+                <p style={{fontSize: 20, textAlign: "center", color: "#ff5a00", padding: 20}}>{props.para2}</p>
                 <a
                     className="App-link"
                     href="https://www.nasa.gov/"
