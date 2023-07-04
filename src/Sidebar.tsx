@@ -14,6 +14,9 @@ export function Sidebar() {
             <a className="menu-item" href="/complex">
                 Complex Counter
             </a>
+            <a className="menu-item" href="/rovers">
+                Rovers
+            </a>
         </Menu>
     );
 };

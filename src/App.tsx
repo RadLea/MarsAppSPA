@@ -1,17 +1,30 @@
-import React from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import './App.css';
 import {Nasa} from "./info";
-import {threeTagProp} from "./componentProp";
+import {RoverProp, ThreeTagProp} from "./componentProp";
 import NasaPic from "./pics/nasa.jpeg";
 import {ClickCounter} from "./clickCounter";
 import {ComplexComponent} from "./complexComponent";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import {Sidebar} from "./Sidebar";
+import axios from 'axios'
+import {RoverForm} from "./form";
+
 
 
 function App() {
 
-    const prop: threeTagProp = {
+    const client = axios.create({
+        baseURL: 'http://localhost:8008'
+    });
+
+    const [rovers, setRovers] = useState([]);
+    useEffect(() => {
+        client.get('/rovers').then((response) => setRovers(response.data));
+    }, []);
+
+
+    const prop: ThreeTagProp = {
         title: "NASA",
         para1: "NASA was established in 1958, succeeding the National Advisory Committee for Aeronautics (NACA)," +
             " to give the U.S. space development effort a distinctly civilian orientation, emphasizing peaceful " +
@@ -27,12 +40,17 @@ function App() {
         imageAlt: "Nasa logo"
     }
 
+    const roverProps: RoverProp = {
+        roverList: rovers
+    };
+
     return (
         <><Sidebar /><Router>
             <Routes>
                 <Route path="/" element={<Nasa {...prop} />}/>
                 <Route path="/complex" element={<ComplexComponent/>}/>
                 <Route path="/simple" element={<ClickCounter/>}/>
+                <Route path="/rovers" element={<RoverForm {...roverProps} />}/>
             </Routes>
         </Router></>
     );

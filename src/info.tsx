@@ -1,8 +1,8 @@
 import React from 'react';
-import {threeTagProp} from "./componentProp";
+import {ThreeTagProp} from "./componentProp";
 import Earth from "./pics/earth.png";
 
-export function Nasa(props: threeTagProp) {
+export function Nasa(props: ThreeTagProp) {
     document.title = props.title;
     return (
         <div className="App">
