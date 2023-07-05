@@ -17,6 +17,9 @@ export function Sidebar() {
             <a className="menu-item" href="/rovers">
                 Rovers
             </a>
+            <a className="menu-item" href="/cats">
+                Cats &#128008;
+            </a>
         </Menu>
     );
 };

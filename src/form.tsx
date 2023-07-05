@@ -1,7 +1,8 @@
 import React, {useEffect, useMemo, useState} from "react";
 import Select, {SingleValue} from "react-select";
 import axios from "axios";
-
+import {ImageList, ImageListItem} from "@mui/material";
+import "./Form.css"
 
 export interface RoverProp {
     roverList: string[];
@@ -31,8 +32,10 @@ export function RoverForm(prop: RoverProp) {
     return (
         <div className={"App"}>
             <div className={"App-header"}>
-                <Select className="select" onChange={handleSelectChange} options={optionsFromProp}/>
-                {showResults ? <CameraForm rover={roverForCamera}/> : null}
+                <div style={{display: "flex", flexDirection: "column", alignItems: "center", height: "80%"}}>
+                    <Select placeholder={"Select Rover"} className="select" onChange={handleSelectChange} options={optionsFromProp}/>
+                    {showResults ? <CameraForm rover={roverForCamera}/> : null}
+                </div>
             </div>
         </div>
     );
@@ -61,7 +64,7 @@ function CameraForm(prop: CameraProp) {
     if (selectedCameraOption !== null) {
         return (
             <div className={"App-header"}>
-                <Select className="select" value={selectedCameraOption}
+                <Select placeholder={"Select Camera"} className="select" value={selectedCameraOption}
                         onChange={(selectedCamera) => {
                             setSelectedCameraOption(selectedCamera);
                             setShowPictures(true);
@@ -73,7 +76,7 @@ function CameraForm(prop: CameraProp) {
     } else {
         return (
             <div>
-                <Select className="select" value={selectedCameraOption}
+                <Select placeholder={"Select Camera"} className="select" value={selectedCameraOption}
                         onChange={(selectedCamera) => {
                             setSelectedCameraOption(selectedCamera);
                             setShowPictures(true);
@@ -96,9 +99,22 @@ function Pictures(prop: PicturesProp) {
     }, [prop.rover, prop.camera]);
 
     return (
-        <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
-            {picList.slice(0,5).map(picture => <img style={{height: "700px", width: "700px"}} src={picture} key={picture} alt="new"/>)}
-            <br/>
+        <div style={{padding: "10px", border: "3px solid orangered", borderRadius: "40px"}}>
+            <ImageList
+                variant="quilted"
+                rowHeight={300}
+                cols={5}
+                gap={10}
+            >
+                {picList.slice(0, 5).map((item, index) => (
+                    <ImageListItem key={index}>
+                        <img
+                            src={item}
+                            alt={`Photo ${index + 1}`}
+                        />
+                    </ImageListItem>
+                ))}
+            </ImageList>
         </div>
     );
 }

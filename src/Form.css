@@ -1,0 +1,17 @@
+.gallery-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    border: 10px solid gray!important;
+    width: 80%!important;
+}
+
+.gallery-photo {
+    width: 10px;
+    height: 200px;
+    object-fit: cover;
+    position: absolute;
+    top: 500px;
+}

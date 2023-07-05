@@ -3,8 +3,11 @@
 }
 
 .App-logo {
-    height: 40vmin;
+    height: 20vmin;
     pointer-events: none;
+    position: absolute;
+    top: 10px;
+    left: 100px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -25,7 +28,8 @@
 }
 
 .App-link {
-    color: #61dafb;
+    color: orangered;
+    font-family: Cambria, bold;
 }
 
 @keyframes App-logo-spin {
@@ -177,4 +181,56 @@
 .select {
     color: black;
     width: 500px;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    border: 2px solid orangered;
+    border-radius: 40px;
+    background-color: black;
+    position: absolute;
+    top: 250px;
+    width: 50%;
+}
+.full-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.para-flex {
+    flex: 1;
+    margin: 10px;
+    text-align: center;
+    color: orangered;
+}
+.corner-image-left {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.corner-image-right {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.link {
+    display: flex;
+    position: absolute;
+    bottom: 50px;
+    left: 45%;
+    font-size: 30px;
+    font-family: bold, serif;
+}
+
+body {
+    background-image: url('https://i.gifer.com/4f8T.gif');
+    background-size: cover;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
 }

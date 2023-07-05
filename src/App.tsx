@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Nasa} from "./info";
 import {RoverProp, ThreeTagProp} from "./componentProp";
@@ -9,7 +9,8 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import {Sidebar} from "./Sidebar";
 import axios from 'axios'
 import {RoverForm} from "./form";
-
+import {Cats} from "./Cats";
+import Logo from "./pics/200px-NASA_Worm_logo.svg_.png"
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
             " the first American program to put people in space. NASA established the Space Task Group to manage " +
             "the program, which would conduct sub-orbital flights with the Army's Redstone rockets and orbital " +
             "flights with the Air Force's Atlas launch vehicles.",
-        image: NasaPic,
+        image: Logo,
         imageAlt: "Nasa logo"
     }
 
@@ -45,12 +46,13 @@ function App() {
     };
 
     return (
-        <><Sidebar /><Router>
+        <><Sidebar/><Router>
             <Routes>
                 <Route path="/" element={<Nasa {...prop} />}/>
                 <Route path="/complex" element={<ComplexComponent/>}/>
                 <Route path="/simple" element={<ClickCounter/>}/>
                 <Route path="/rovers" element={<RoverForm {...roverProps} />}/>
+                <Route path="/cats" element={<Cats/>}/>
             </Routes>
         </Router></>
     );

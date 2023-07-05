@@ -5,12 +5,22 @@ import Earth from "./pics/earth.png";
 export function Nasa(props: ThreeTagProp) {
     document.title = props.title;
     return (
-        <div className="App">
-            <header className="App-header">
+        <>
+            <div>
                 <img src={Earth} className="App-logo" alt="logo"/>
-                <p style={{fontSize: 20, textAlign: "center", color: "#ff5a00", padding: 20}}>{props.para1}</p>
-                <img src={props.image} alt={props.imageAlt}/>
-                <p style={{fontSize: 20, textAlign: "center", color: "#ff5a00", padding: 20}}>{props.para2}</p>
+            </div>
+            <div className={"full-page"}>
+                <div className={"flex-container"}>
+
+                    <div className={"para-flex"}>
+                        <p>{props.para1}</p>
+                    </div>
+                    <div className={"para-flex"}>
+                        <p>{props.para2}</p>
+                    </div>
+                </div>
+            </div>
+            <div className={"link"}>
                 <a
                     className="App-link"
                     href="https://www.nasa.gov/"
@@ -19,8 +29,10 @@ export function Nasa(props: ThreeTagProp) {
                 >
                     Visit Nasa for more
                 </a>
-
-            </header>
-        </div>
+            </div>
+            <div className={"corner-image-left"}>
+                <img style={{width: "200px"}} src={props.image} alt={props.imageAlt}/>
+            </div>
+        </>
     );
 }
